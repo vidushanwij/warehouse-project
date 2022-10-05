@@ -1,5 +1,7 @@
 package com.example.warehousemanagement.service;
 
+import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
@@ -15,7 +17,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeBodyPart;
 
-
+@Service
 public class EmailDownloadService {
 
     private String saveDirectory;
@@ -127,23 +129,5 @@ public class EmailDownloadService {
             ex.printStackTrace();
         }
     }
-
-    /**
-     * Runs this program with Gmail POP3 server
-     */
-    public static void main(String[] args) {
-        String host = "pop.gmail.com";
-        String port = "995";
-        String userName = "your_email";
-        String password = "your_password";
-
-        String saveDirectory = "E:/Attachment";
-
-        EmailAttachmentReceiver receiver = new EmailAttachmentReceiver();
-        receiver.setSaveDirectory(saveDirectory);
-        receiver.downloadEmailAttachments(host, port, userName, password);
-
-    }
-
 
 }
