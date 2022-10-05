@@ -15,7 +15,6 @@ public class TextProcessService {
     @Autowired
     FileReadService fileReadService;
 
-
     public String textParser(){
 
         String text = fileReadService.text;
@@ -23,13 +22,10 @@ public class TextProcessService {
 
         Pattern pattern = Pattern.compile("Amount : ");
         Matcher matcher = pattern.matcher(text);
-        //matcher.
         while(matcher.find()){
             processed= text.substring(matcher.end()).trim();
         }
-
         String[] arrOfStr = processed.split(" ", 2);
-
         System.out.println(Arrays.toString(arrOfStr));
 
         String valueOne= arrOfStr[0];
