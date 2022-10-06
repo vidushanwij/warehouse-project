@@ -1,9 +1,11 @@
 package com.example.warehousemanagement.controller;
 
-import com.example.warehousemanagement.service.EmailDownloadService;
-import com.example.warehousemanagement.service.FileReadService;
-import com.example.warehousemanagement.service.TextProcessService;
+import com.example.warehousemanagement.Model.Item;
+import com.example.warehousemanagement.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,14 +19,15 @@ public class MainController {
     String saveDirectory = "E:/Attachment";
 
 
-    private  FileReadService fileReadService;
-    private TextProcessService textProcessService;
-    private EmailDownloadService emailDownloadService;
+    private FileReadService fileReadService;
+    private TextProcessServiceImpl textProcessServiceImpl;
+    private AttachmentDownloadServiceImpl attachmentDownloadServiceImpl;
 
-    public MainController( FileReadService fileReadService, TextProcessService textProcessService, EmailDownloadService emailDownloadService){
-        this.fileReadService=fileReadService;
-        this.textProcessService=textProcessService;
-        this.emailDownloadService=emailDownloadService;
+
+    public MainController(FileReadServiceImpl fileReadServiceImpl, TextProcessServiceImpl textProcessServiceImpl, AttachmentDownloadServiceImpl attachmentDownloadServiceImpl){
+        this.fileReadService = fileReadServiceImpl;
+        this.textProcessServiceImpl = textProcessServiceImpl;
+        this.attachmentDownloadServiceImpl = attachmentDownloadServiceImpl;
     }
 
     @RequestMapping(value = "/start")
@@ -34,15 +37,13 @@ public class MainController {
 
     @RequestMapping(value = "/parse")
     public String parseText(){
-        return textProcessService.textParser();
+        return textProcessServiceImpl.textParser();
     }
 
     @RequestMapping(value = "/download")
     public void downloadEmail(){
-        emailDownloadService.setSaveDirectory(saveDirectory);
-        emailDownloadService.downloadEmailAttachments(host,port,userName,password);
+        attachmentDownloadServiceImpl.setSaveDirectory(saveDirectory);
+        attachmentDownloadServiceImpl.downloadEmailAttachments(host,port,userName,password);
 
     }
-
-
 }

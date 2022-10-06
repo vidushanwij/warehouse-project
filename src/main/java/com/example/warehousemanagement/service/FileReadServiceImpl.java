@@ -7,11 +7,9 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FileReadService {
+public class FileReadServiceImpl implements FileReadService {
 
     public String text;
-
-
 
     public String read(){
         try{

@@ -18,7 +18,7 @@ import javax.mail.Store;
 import javax.mail.internet.MimeBodyPart;
 
 @Service
-public class EmailDownloadService {
+public class AttachmentDownloadServiceImpl implements AttachmentDownloadService {
 
     private String saveDirectory;
 
