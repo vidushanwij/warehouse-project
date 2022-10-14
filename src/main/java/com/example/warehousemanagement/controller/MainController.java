@@ -3,6 +3,7 @@ package com.example.warehousemanagement.controller;
 import com.example.warehousemanagement.Model.Item;
 import com.example.warehousemanagement.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,7 @@ public class MainController {
         this.attachmentDownloadServiceImpl = attachmentDownloadServiceImpl;
     }
 
+
     @RequestMapping(value = "/start")
     public String readFile(){
         return fileReadService.read();
@@ -40,6 +42,7 @@ public class MainController {
         return textProcessServiceImpl.textParser();
     }
 
+    @Scheduled(fixedRate = 30000)
     @RequestMapping(value = "/download")
     public void downloadEmail(){
         attachmentDownloadServiceImpl.setSaveDirectory(saveDirectory);

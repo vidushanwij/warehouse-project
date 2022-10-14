@@ -1,15 +1,18 @@
 package com.example.warehousemanagement.service;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FileReadServiceImpl implements FileReadService {
 
     public String text;
+    public File directory ;
 
     public String read(){
         try{
@@ -28,5 +31,16 @@ public class FileReadServiceImpl implements FileReadService {
         }
 
         return text;
+    }
+
+    // have to call and test this
+    @Override
+    public void cleanDirectory() {
+        directory=new File("/Users/Vidu/Documents/temp");
+        try {
+            FileUtils.cleanDirectory(directory);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
