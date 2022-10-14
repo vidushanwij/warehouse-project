@@ -3,6 +3,7 @@ package com.example.warehousemanagement.controller;
 import com.example.warehousemanagement.Model.Item;
 import com.example.warehousemanagement.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,9 +13,10 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @RequestMapping(value ="/add", method = RequestMethod.POST)
-    public Item addItem(@RequestBody Item item){
-        return itemService.save(item);
+
+    @RequestMapping(value ="/add", method = RequestMethod.GET)
+    public Item addItem(){
+        return itemService.save();
     }
 
     @GetMapping("{key}")

@@ -10,8 +10,18 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int itemNo;
-    private String currentStage;
+    private String currentStage ;
     private String handlerName;
+
+    public Item(int itemNo, String currentStage, String handlerName) {
+        this.itemNo = itemNo;
+        this.currentStage = currentStage;
+        this.handlerName = handlerName;
+    }
+
+    public Item() {
+
+    }
 
     public int getItemNo() {
         return itemNo;
@@ -36,4 +46,5 @@ public class Item {
     public void setHandlerName(String handlerName) {
         this.handlerName = handlerName;
     }
+
 }
