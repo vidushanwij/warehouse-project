@@ -1,12 +1,11 @@
 package com.example.warehousemanagement.controller;
 
-import com.example.warehousemanagement.Model.Item;
 import com.example.warehousemanagement.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.warehousemanagement.serviceimpl.AttachmentDownloadServiceImpl;
+import com.example.warehousemanagement.serviceimpl.FileReadServiceImpl;
+import com.example.warehousemanagement.serviceimpl.TextProcessServiceImpl;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

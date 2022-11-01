@@ -1,11 +1,12 @@
-package com.example.warehousemanagement.service;
+package com.example.warehousemanagement.serviceimpl;
 
 import com.example.warehousemanagement.Model.Item;
 import com.example.warehousemanagement.repository.ItemRepository;
+import com.example.warehousemanagement.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Id;
+import java.util.List;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -21,5 +22,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item getItem(int key) {
         return itemRepository.findById(key).orElse(null);
+    }
+
+    @Override
+    public List<Item> getAllItems() {
+        return itemRepository.findAll() ;
     }
 }

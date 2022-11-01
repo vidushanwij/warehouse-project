@@ -1,5 +1,6 @@
-package com.example.warehousemanagement.service;
+package com.example.warehousemanagement.serviceimpl;
 
+import com.example.warehousemanagement.service.TextProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

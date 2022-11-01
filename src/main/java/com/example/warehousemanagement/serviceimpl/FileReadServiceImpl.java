@@ -1,8 +1,9 @@
-package com.example.warehousemanagement.service;
+package com.example.warehousemanagement.serviceimpl;
 
 import java.io.File;
 import java.io.IOException;
 
+import com.example.warehousemanagement.service.FileReadService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.tomcat.util.http.fileupload.FileUtils;

@@ -1,5 +1,6 @@
-package com.example.warehousemanagement.service;
+package com.example.warehousemanagement.serviceimpl;
 
+import com.example.warehousemanagement.service.AttachmentDownloadService;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
